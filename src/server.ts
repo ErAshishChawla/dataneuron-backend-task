@@ -25,11 +25,6 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  console.log("Request received at: ", new Date().toISOString());
-  next();
-});
-
 // Setting up the API Router
 app.use(apiPaths.entry(), apiRouter);
 

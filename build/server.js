@@ -11,6 +11,8 @@ const api_router_1 = require("./routes/api-router");
 const api_response_1 = require("./lib/api-response");
 const db_js_1 = require("./lib/db.js");
 require("dotenv/config");
+// Setting the PORT
+const port = process.env.PORT || 4000;
 // Create an Express application
 const app = (0, express_1.default)();
 // Adding Standard Middlewares
@@ -19,10 +21,6 @@ app.use((0, cors_1.default)({
     credentials: true, // Allow credentials
 }));
 app.use(body_parser_1.default.json());
-app.use((req, res, next) => {
-    console.log("Request received at: ", new Date().toISOString());
-    next();
-});
 // Setting up the API Router
 app.use(api_paths_1.apiPaths.entry(), api_router_1.apiRouter);
 // Handling 404 Errors
@@ -34,8 +32,8 @@ app.use((req, res) => {
     .then(() => {
     console.log("Connected to DB");
     // Starting the Server
-    app.listen(process.env.PORT, () => {
-        console.log(`Server is running on PORT ${process.env.PORT}`);
+    app.listen(port, () => {
+        console.log(`Server is running on PORT ${port}`);
     });
 })
     .catch((err) => {
