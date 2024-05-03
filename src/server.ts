@@ -16,6 +16,15 @@ const port = process.env.PORT || 4000;
 // Create an Express application
 const app = express();
 
+// Enable CORS
+app.use(
+  cors({
+    origin:
+      process.env.CLIENT_URL || "https://dataneuron-frontend-task.vercel.app/",
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.json());
 
 // Setting up the API Router
