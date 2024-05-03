@@ -17,7 +17,7 @@ const port = process.env.PORT || 4000;
 const app = (0, express_1.default)();
 // Enable CORS
 app.use((0, cors_1.default)({
-    origin: process.env.CLIENT_URL || "https://dataneuron-frontend-task.vercel.app/",
+    origin: process.env.CLIENT_URL || "https://dataneuron-frontend-task.vercel.app",
     credentials: true,
 }));
 app.use(body_parser_1.default.json());

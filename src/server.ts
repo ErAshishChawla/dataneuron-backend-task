@@ -20,7 +20,7 @@ const app = express();
 app.use(
   cors({
     origin:
-      process.env.CLIENT_URL || "https://dataneuron-frontend-task.vercel.app/",
+      process.env.CLIENT_URL || "https://dataneuron-frontend-task.vercel.app",
     credentials: true,
   })
 );
