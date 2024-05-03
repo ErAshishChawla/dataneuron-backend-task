@@ -16,13 +16,6 @@ const port = process.env.PORT || 4000;
 // Create an Express application
 const app = express();
 
-// Adding Standard Middlewares
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL, // Specify the exact origin
-    credentials: true, // Allow credentials
-  })
-);
 app.use(bodyParser.json());
 
 // Setting up the API Router

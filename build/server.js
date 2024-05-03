@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const cors_1 = __importDefault(require("cors"));
 const api_paths_1 = require("./lib/api-paths");
 const api_router_1 = require("./routes/api-router");
 const api_response_1 = require("./lib/api-response");
@@ -15,11 +14,6 @@ require("dotenv/config");
 const port = process.env.PORT || 4000;
 // Create an Express application
 const app = (0, express_1.default)();
-// Adding Standard Middlewares
-app.use((0, cors_1.default)({
-    origin: process.env.CLIENT_URL, // Specify the exact origin
-    credentials: true, // Allow credentials
-}));
 app.use(body_parser_1.default.json());
 // Setting up the API Router
 app.use(api_paths_1.apiPaths.entry(), api_router_1.apiRouter);
