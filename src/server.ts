@@ -10,6 +10,9 @@ import { connectDB } from "./lib/db.js";
 
 import "dotenv/config";
 
+// Setting the PORT
+const port = process.env.PORT || 4000;
+
 // Create an Express application
 const app = express();
 
@@ -41,8 +44,8 @@ connectDB()
     console.log("Connected to DB");
 
     // Starting the Server
-    app.listen(process.env.PORT, () => {
-      console.log(`Server is running on PORT ${process.env.PORT}`);
+    app.listen(port, () => {
+      console.log(`Server is running on PORT ${port}`);
     });
   })
   .catch((err) => {
